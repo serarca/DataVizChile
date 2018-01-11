@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<head>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+
+<body>
+	<script type="text/javascript">
+		var dataset;
+		d3.csv("fruits.csv", function(data){
+			dataset = data;
+
+			d3.select("body")
+				.append("p")
+				.text("Manzana")
+				.style("color","red");
+
+			d3.select("body")
+				.selectAll("p")
+				.data(dataset)
+				.enter()
+				.append("p")
+				.text(function(d){return d.Fruit})
+				.style("color",function(d){return d.Color});
+
+		});
+	</script>
+</body>

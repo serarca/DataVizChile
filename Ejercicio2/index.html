@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Mis Bombillos</title>
+  <script type="text/javascript">
+  	var on = false;
+	function turnOn(){
+		document.getElementById('bulb').src = "pic_bulbon.gif"
+		on = true;
+	}
+	function turnOff(){
+		document.getElementById('bulb').src = "pic_bulboff.gif"
+		on = false;
+	}
+	function change(){
+		if (on){
+			turnOff();
+		} else {
+			turnOn();
+		}
+}
+  </script>
+</head>
+
+<body>
+  <img src="pic_bulboff.gif" id='bulb' onmouseover="turnOn()" onmouseout="turnOff()">
+  <button onclick="change()"> Switch </button>
+</body>
