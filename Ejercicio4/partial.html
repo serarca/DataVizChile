@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<head>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+
+<body>
+	<script type="text/javascript">
+
+		var w = 800;
+		var h = 200;
+
+		var padding = 3;
+
+		var svg = d3.select("body")
+					.append("svg")
+					.attr("width", w)
+					.attr("height", h);
+
+		var bardata = [];
+		for (var i = 0; i<25; i++){
+			var newNumber = Math.floor(Math.random()*100);
+			bardata.push(newNumber);
+		}
+
+		svg.selectAll("rect")
+			.data(bardata)
+			.enter()
+			.append("rect")
+			.attr("x",function(d, i){return i*w/bardata.length;})
+			.attr("y",function(d){return h - d * 2})
+			.attr("width",w/bardata.length - padding)
+			.attr("height",function(d){return d * 2;})
+			.attr("fill", function(d){return "rgb(0,0,"+(d * 2)+")";});
+
+	</script>
+</body>
